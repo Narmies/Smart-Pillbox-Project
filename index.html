@@ -3,73 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Pill Box - პროექტის აღწერა</title>
+    <title>Smart Pill Box | ESP32 Project</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        .hero-blue { background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%); }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+<body class="bg-[#f8fafc] text-slate-900">
 
-    <header class="bg-blue-600 text-white py-12 shadow-md">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl font-bold mb-2">Smart Pill Box</h1>
-            <p class="text-xl opacity-90">ჭკვიანი წამლების კონტეინერი - ESP32 & Arduino</p>
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-blue-100 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="text-2xl font-black text-blue-700 tracking-tighter italic underline decoration-blue-300">SmartPillBox</span>
+            <div class="hidden md:flex space-x-8 font-semibold text-slate-600">
+                <a href="#about" class="hover:text-blue-700 transition">პროექტზე</a>
+                <a href="#features" class="hover:text-blue-700 transition">ფუნქციები</a>
+                <a href="#hardware" class="hover:text-blue-700 transition">აპარატურა</a>
+            </div>
+            <a href="https://github.com/narmies" class="bg-blue-700 text-white px-6 py-2 rounded-lg font-bold hover:bg-blue-800 transition">
+                <i class="fab fa-github mr-2"></i>GitHub
+            </a>
+        </div>
+    </nav>
+
+    <header class="hero-blue text-white pt-40 pb-24 px-6 overflow-hidden">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight italic">Smart Pill Box</h1>
+                <p class="text-xl opacity-80 mb-8 border-l-4 border-blue-400 pl-4">
+                    ინტელექტუალური სისტემა მედიკამენტების მართვისთვის. სიზუსტე, უსაფრთხოება და სიმარტივე ერთ მოწყობილობაში.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#about" class="bg-blue-500 hover:bg-blue-400 text-white px-8 py-4 rounded-xl font-bold transition shadow-xl">დაიწყე ახლა</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="project-main.jpg" alt="Smart Pill Box" class="rounded-2xl shadow-2xl border-4 border-blue-400/30 transform hover:scale-105 transition duration-500">
+            </div>
         </div>
     </header>
 
-    <main class="container mx-auto px-6 py-10 max-w-4xl">
+    <main class="container mx-auto px-6 py-20">
         
-        <section class="mb-12 bg-white p-8 rounded-lg shadow-sm">
-            <h2 class="text-2xl font-semibold border-b-2 border-blue-500 pb-2 mb-4">პროექტის შესახებ</h2>
-            <p class="text-lg">
-                ეს საქაღალდე შეიცავს "ჭკვიანი წამლების კონტეინერის" (Smart Pill Box) პროექტის ESP32-ის საბაზისო პროგრამულ უზრუნველყოფას. პროექტის მიზანია დაეხმაროს პაციენტებს წამლების დროულად და უსაფრთხოდ მიღებაში.
-            </p>
-        </section>
-
-        <section class="mb-12">
-            <h2 class="text-2xl font-semibold border-b-2 border-blue-500 pb-2 mb-6">ფუნქციები</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
-                    <h3 class="font-bold mb-2">📅 RTC დაგეგმარება</h3>
-                    <p>რეალური დროის საათზე (RTC) დაფუძნებული ზუსტი განრიგი.</p>
+        <section id="about" class="mb-32 scroll-mt-28">
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                <div class="md:w-1/2">
+                    <h2 class="text-blue-700 font-black text-sm uppercase tracking-[0.2em] mb-2">მიმოხილვა</h2>
+                    <h3 class="text-4xl font-bold mb-6 text-slate-800 italic">რა არის ეს პროექტი?</h3>
+                    <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                        ეს პროექტი შექმნილია ESP32 მიკროკონტროლერის ბაზაზე. სისტემა უზრუნველყოფს მედიკამენტების უსაფრთხო შენახვას და ავტომატურ შეხსენებას, რაც კრიტიკულად მნიშვნელოვანია ქრონიკული დაავადებების მქონე პირებისთვის.
+                    </p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
-                    <h3 class="font-bold mb-2">🔓 ავტომატური გაღება</h3>
-                    <p>სოლენოიდური საკეტების ავტომატური მართვა.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
-                    <h3 class="font-bold mb-2">✅ მიღების დადასტურება</h3>
-                    <p>წამლის მიღების კონტროლი ლიმიტური გადამრთველებით.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
-                    <h3 class="font-bold mb-2">🔔 ხმოვანი განგაში</h3>
-                    <p>ბაზერის მეშვეობით შეხსენების სისტემა.</p>
+                <div class="md:w-1/2">
+                    <img src="schematic.png" alt="Circuit Schematic" class="rounded-xl shadow-lg hover:shadow-2xl transition">
                 </div>
             </div>
         </section>
 
-        <section class="mb-12 bg-white p-8 rounded-lg shadow-sm">
-            <h2 class="text-2xl font-semibold border-b-2 border-blue-500 pb-2 mb-4">აპარატურა (Hardware)</h2>
-            <ul class="list-disc list-inside space-y-2 text-lg">
-                <li><span class="font-semibold">ESP32</span> - მთავარი მიკროკონტროლერი</li>
-                <li><span class="font-semibold">DS3231 RTC</span> - დროის მოდული</li>
-                <li><span class="font-semibold">2x სოლენოიდური საკეტი</span> - უსაფრთხოებისთვის</li>
-                <li><span class="font-semibold">2x ლიმიტური გადამრთველი</span> - სენსორები</li>
-                <li><span class="font-semibold">ბაზერი</span> - ხმოვანი სიგნალისთვის</li>
-                <li><span class="font-semibold">ღილაკი</span> - მექანიკური მართვისთვის</li>
-            </ul>
+        <section id="features" class="mb-32 scroll-mt-28 bg-blue-50 p-12 rounded-[3rem]">
+            <h2 class="text-3xl font-bold mb-16 text-center text-blue-900 italic underline decoration-blue-400">რატომ Smart Pill Box?</h2>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-blue-100 hover:-translate-y-2 transition">
+                    <div class="text-blue-600 mb-6 text-4xl"><i class="fas fa-microchip"></i></div>
+                    <h4 class="text-xl font-bold mb-4">ESP32 Core</h4>
+                    <p class="text-slate-500">ძლიერი პროცესორი Wi-Fi მხარდაჭერით და სწრაფი რეაგირებით.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-blue-100 hover:-translate-y-2 transition">
+                    <div class="text-blue-600 mb-6 text-4xl"><i class="fas fa-fingerprint"></i></div>
+                    <h4 class="text-xl font-bold mb-4">უსაფრთხოება</h4>
+                    <p class="text-slate-500">სოლენოიდური საკეტები იცავს წამლებს არაავტორიზებული წვდომისგან.</p>
+                </div>
+                <div class="bg-white p-10 rounded-3xl shadow-sm border border-blue-100 hover:-translate-y-2 transition">
+                    <div class="text-blue-600 mb-6 text-4xl"><i class="fas fa-wifi"></i></div>
+                    <h4 class="text-xl font-bold mb-4">RTC კონტროლი</h4>
+                    <p class="text-slate-500">დროის ზუსტი კონტროლი რეალური დროის საათის მოდულით.</p>
+                </div>
+            </div>
         </section>
 
-        <section class="mb-12 bg-gray-800 text-white p-8 rounded-lg">
-            <h2 class="text-2xl font-semibold border-b-2 border-blue-400 pb-2 mb-4">კოდის გამოყენება</h2>
-            <p class="mb-4">პროექტის გამოსაყენებლად დააკოპირეთ რეპოზიტორი და ჩატვირთეთ Arduino IDE-ს მეშვეობით:</p>
-            <pre class="bg-black p-4 rounded text-green-400 overflow-x-auto">
-git clone https://github.com/თქვენი-სახელი/smart-pill-box.git
-            </pre>
+        <section id="hardware" class="scroll-mt-28 bg-slate-900 text-white p-12 rounded-3xl shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 blur-[100px]"></div>
+            <h2 class="text-3xl font-bold mb-10 italic">საჭირო კომპონენტები</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <div class="flex items-center p-4 bg-slate-800 rounded-xl border border-slate-700">
+                        <span class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center mr-4 italic">01</span>
+                        <span>ESP32 Development Board</span>
+                    </div>
+                    <div class="flex items-center p-4 bg-slate-800 rounded-xl border border-slate-700">
+                        <span class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center mr-4 italic">02</span>
+                        <span>DS3231 RTC Module</span>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-center p-4 bg-slate-800 rounded-xl border border-slate-700">
+                        <span class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center mr-4 italic">03</span>
+                        <span>12V Solenoid Locks</span>
+                    </div>
+                    <div class="flex items-center p-4 bg-slate-800 rounded-xl border border-slate-700">
+                        <span class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center mr-4 italic">04</span>
+                        <span>Buzzer & Buttons</span>
+                    </div>
+                </div>
+            </div>
         </section>
-
     </main>
 
-    <footer class="bg-gray-200 py-6 text-center text-gray-600">
-        <p>© 2024 Smart Pill Box Project. დამზადებულია სიყვარულით.</p>
+    <footer class="bg-white border-t border-blue-100 py-16">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-blue-900 font-bold text-xl mb-4 italic">Smart Pill Box Project</p>
+            <p class="text-slate-400 italic">Created by Narmies &copy; 2024</p>
+        </div>
     </footer>
 
 </body>
