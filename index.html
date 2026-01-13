@@ -3,112 +3,197 @@
 <head>
   <meta charset="UTF-8">
   <title>ჭკვიანი წამლის ყუთი</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f4f6f8;
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
       color: #333;
     }
-    h1, h2 {
-      color: #2c3e50;
+
+    header {
+      padding: 70px 20px;
+      text-align: center;
+      color: #fff;
+      animation: fadeDown 1s ease;
     }
-    section {
+
+    header h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    .btn-group {
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      margin: 10px;
+      border-radius: 30px;
       background: #ffffff;
+      color: #4b4fd8;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      background: #4b4fd8;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: -40px auto 40px;
       padding: 20px;
-      margin-bottom: 25px;
-      border-radius: 8px;
     }
+
+    .card {
+      background: #ffffff;
+      padding: 30px;
+      margin-bottom: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      color: #4b4fd8;
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
     img {
-      max-width: 100%;
-      margin-top: 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      transition: transform 0.4s ease;
     }
+
+    img:hover {
+      transform: scale(1.05);
+    }
+
     footer {
       text-align: center;
-      margin-top: 40px;
-      color: #555;
+      padding: 30px;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 
 <body>
 
-<h1>ორი განყოფილებიანი ჭკვიანი წამლის ყუთი</h1>
-<p><strong>Senior Design Project</strong></p>
+<header>
+  <h1>ორი განყოფილებიანი ჭკვიანი წამლის ყუთი</h1>
+  <p>ავტომატური მედიკამენტის მიღების კონტროლის სისტემა</p>
 
-<section>
-  <h2>პროექტის აღწერა</h2>
-  <p>
-    მოცემული პროექტი წარმოადგენს ორი განყოფილებიანი ჭკვიანი წამლის ყუთის დიზაინსა
-    და რეალიზაციას, რომელიც უზრუნველყოფს მედიკამენტების მიღების დროის ზუსტ დაცვას.
-    სისტემა ავტომატურად ხსნის შესაბამის განყოფილებას განსაზღვრულ დროს და ადასტურებს
-    მედიკამენტის მიღების ფაქტს თავსახურის ხელახალი დახურვისას.
-  </p>
-</section>
-
-<section>
-  <h2>სისტემის ფუნქციონალი</h2>
-  <ul>
-    <li>მედიკამენტის მიღების დროის კონტროლი (RTC)</li>
-    <li>ორი დამოუკიდებელი განყოფილების მართვა</li>
-    <li>ავტომატური გახსნა სოლენოიდის საშუალებით</li>
-    <li>ხმოვანი შეტყობინება (ბუზერი)</li>
-    <li>მედიკამენტის მიღების დადასტურება</li>
-  </ul>
-</section>
-
-<section>
-  <h2>აპარატურული კომპონენტები</h2>
-  <ul>
-    <li>ESP32 მიკროკონტროლერი</li>
-    <li>DS3231 რეალური დროის საათი (RTC)</li>
-    <li>2 × სოლენოიდი</li>
-    <li>2 × ლიმიტური გადამრთველი</li>
-    <li>ბუზერი</li>
-    <li>მართვის ღილაკი</li>
-    <li>ელექტრო კვების მოდული</li>
-  </ul>
-</section>
-
-<section>
-  <h2>პროგრამული უზრუნველყოფა</h2>
-  <p>
-    პროგრამული ნაწილი აგებულია ESP32 პლატფორმაზე და უზრუნველყოფს დროის კონტროლს,
-    განყოფილებების ავტომატურ გახსნას და უკუკავშირის სისტემას. კოდი მოდულურია და
-    შესაძლებელია მისი გაფართოება ვებ-ინტერფეისით ან მონაცემთა ლოგირებით.
-  </p>
-</section>
-
-<section>
-  <h2>სისტემის დიაგრამები</h2>
-
-  <h3>ბლოკ-დიაგრამა</h3>
-  <img src="drawings/block_diagram.png" alt="Block Diagram">
-
-  <h3>ელექტრული დიაგრამა</h3>
-  <img src="drawings/electrical_diagram.png" alt="Electrical Diagram">
-
-  <h3>3D დიზაინი</h3>
-  <img src="drawings/3d_design.png" alt="3D Design">
-</section>
-
-<section>
-  <h2>GitHub რეპოზიტორია</h2>
-  <p>
-    პროექტის სრული კოდი და დოკუმენტაცია ხელმისაწვდომია GitHub-ზე:
-  </p>
-  <p>
-    <a href="https://github.com/Narmies/Smart-Pillbox-Project" target="_blank">
-      https://github.com/Narmies/Smart-Pillbox-Project
+  <div class="btn-group">
+    <a href="#about" class="btn">პროექტის აღწერა</a>
+    <a href="#diagrams" class="btn">დიაგრამები</a>
+    <a href="https://github.com/Narmies/Smart-Pillbox-Project" target="_blank" class="btn">
+      GitHub
     </a>
-  </p>
-</section>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="card" id="about">
+    <h2>პროექტის აღწერა</h2>
+    <p>
+      მოცემული პროექტი წარმოადგენს ორი განყოფილებიანი ჭკვიანი წამლის ყუთის დიზაინსა
+      და რეალიზაციას, რომელიც უზრუნველყოფს მედიკამენტების მიღების დროის ზუსტ დაცვას.
+      სისტემა ავტომატურად ხსნის შესაბამის განყოფილებას განსაზღვრულ დროს და ადასტურებს
+      მედიკამენტის მიღების ფაქტს თავსახურის დახურვისას.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>სისტემის ძირითადი ფუნქციები</h2>
+    <ul>
+      <li>RTC-ზე დაფუძნებული დროის კონტროლი</li>
+      <li>ორი დამოუკიდებელი მედიკამენტის განყოფილება</li>
+      <li>ავტომატური გახსნა სოლენოიდის საშუალებით</li>
+      <li>ხმოვანი შეტყობინება (ბუზერი)</li>
+      <li>მედიკამენტის მიღების დადასტურება</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>აპარატურული კომპონენტები</h2>
+    <ul>
+      <li>ESP32 მიკროკონტროლერი</li>
+      <li>DS3231 RTC მოდული</li>
+      <li>სოლენოიდები და ლიმიტური გადამრთველები</li>
+      <li>ხმოვანი სიგნალიზაცია</li>
+    </ul>
+  </div>
+
+  <div class="card" id="diagrams">
+    <h2>სისტემის დიაგრამები</h2>
+    <div class="images">
+      <img src="drawings/block_diagram.png">
+      <img src="drawings/electrical_diagram.png">
+      <img src="drawings/3d_design.png">
+    </div>
+  </div>
+
+</div>
 
 <footer>
-  <p>© Smart Pill Box Project</p>
+  © Smart Pill Box Project
 </footer>
+
+<script>
+  const cards = document.querySelectorAll('.card');
+
+  window.addEventListener('scroll', () => {
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        card.classList.add('show');
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
